@@ -26,13 +26,14 @@ public class GuestService {
 	}
 	
 	public Guests getGuestByEmail(String email) {
-		List<Guests> guests = getAllGuests();
-		for (Guests guest : guests) {
-			if(guest.getEmail().equals(email)) {
-				return guest;
-			}
-		}
-		return null;
+//		List<Guests> guests = getAllGuests();
+//		for (Guests guest : guests) {
+//			if(guest.getEmail().equals(email)) {
+//				return guest;
+//			}
+//		}
+//		return null;
+		return guestRepository.findByEmail(email);
 	}
 	
 	public int updateGuest(String email, HashMap<String, String> updatePropertyValue) throws Exception{
@@ -59,12 +60,7 @@ public class GuestService {
 	}
 	
 	public void deleteGuestByEmail(String email) {
-		Guests guest = getGuestByEmail(email);
-		if (guest == null) {
-			System.out.println("No guests with " + email + "are present.");
-		} else {
-			guestRepository.delete(guest);
-		}
+		guestRepository.deleteByEmail(email);
 	}
 	
 }

@@ -20,24 +20,24 @@ public class Reservations {
 	private int guestId;
 	@Column(name = "RES_DATE")
 	@Temporal(TemporalType.DATE)
-	private Date resDate;
+	private Date date;
 	
 	public Reservations() {
 		super();
 	}
 
-	public Reservations(int reservationId, int roomId, int guestId, Date resDate) {
+	public Reservations(int reservationId, int roomId, int guestId, Date date) {
 		super();
 		this.reservationId = reservationId;
 		this.roomId = roomId;
 		this.guestId = guestId;
-		this.resDate = resDate;
+		this.date = date;
 	}
 
 	@Override
 	public String toString() {
 		return "Reservation [reservationId=" + reservationId + ", roomId=" + roomId + ", guestId=" + guestId
-				+ ", resDate=" + resDate + "]";
+				+ ", date=" + date + "]";
 	}
 
 	public int getReservationId() {
@@ -64,12 +64,12 @@ public class Reservations {
 		this.guestId = guestId;
 	}
 
-	public Date getResDate() {
-		return resDate;
+	public Date getdate() {
+		return date;
 	}
 
-	public void setResDate(Date resDate) {
-		this.resDate = resDate;
+	public void setdate(Date date) {
+		this.date = date;
 	}
 
 }

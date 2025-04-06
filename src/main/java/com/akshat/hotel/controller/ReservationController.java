@@ -1,5 +1,7 @@
 package com.akshat.hotel.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -65,13 +67,15 @@ public class ReservationController {
 		sc.close();
 	}
 	
-	public void getReservationByDate() {
-		String reservationDateInp;
+	public void getReservationByDate() throws ParseException {
+		String reservationDateInp = null;
 		Date reservationDate = null;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Enter the email of the guest you want the information about.");
+		System.out.println("Enter the date of the reservation you want the information about.");
 		reservationDateInp = sc.nextLine();	
+		reservationDate = sdf.parse(reservationDateInp);
 		List<Reservations> reservations = reservationService.getReservationByDate(reservationDate);
 		System.out.println("Lists of reservations:");
 		for (Reservations reservation : reservations) {

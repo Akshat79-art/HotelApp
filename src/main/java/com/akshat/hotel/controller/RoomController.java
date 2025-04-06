@@ -26,12 +26,22 @@ public class RoomController {
 	
 	public void displayRoom(int id) {
 		Rooms room = roomService.getRoomById(id);
-		System.out.println("Room:" + room);
+		if (room != null) {
+			System.out.println("Room:" + room);
+		}
+		else {
+			System.out.println("No room with this id.");
+		}
 	}
 
 	public void displayRoom(String roomNum) {
 		Rooms room = roomService.getRoomByNumber(roomNum);
-		System.out.println("Room:" + room);
+		if (room != null) {
+			System.out.println("Room:" + room);
+		}
+		else {
+			System.out.println("No room with this id.");
+		}
 	}
 	
 	public void updateRoom() throws Exception {
@@ -55,6 +65,7 @@ public class RoomController {
 	            System.out.println("Type 4 for exiting.");
 	            
 	            optionNum = sc.nextInt();
+	            sc.nextLine();
 	            
 	            if (optionNum < 1 || optionNum > 4) {
 	                System.out.println("Enter a number between 1-4.");

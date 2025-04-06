@@ -75,6 +75,7 @@ public class GuestController {
 				System.out.println("Type 7 for updating phone number.");
 				System.out.println("Type 8 for exiting.");
 				optionNum = sc.nextInt();
+				sc.nextLine();
 				if(optionNum < 1 || optionNum > 8) {
 					System.out.println("Enter a number between 1-8.");
 					continue;
