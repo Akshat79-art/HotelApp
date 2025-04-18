@@ -34,7 +34,12 @@ public class RoomController {
 		}
 	}
 
-	public void displayRoom(String roomNum) {
+	public void displayRoom() {
+		String roomNum;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number of the room you want to get details of.");
+		roomNum = sc.nextLine();
+		sc.close();
 		Rooms room = roomService.getRoomByNumber(roomNum);
 		if (room != null) {
 			System.out.println("Room:" + room);
